@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="baitap.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body{background-color: rgb(0, 0, 0);color: rgba(255, 255, 255, 0.801);margin-bottom: 70px;}
+        .topnav{vertical-align: middle; text-align: center;border: none;}
+        a{text-decoration: none;border: none;}
+        a:hover{color: pink;}
+        .row{padding: 5px}
+        .mHeader{padding-bottom: 50px;}
+        .brandname{font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-size: 40px;
+        font-weight: bold;vertical-align: middle;}
+        .kq{text-align: center;}
+        .lego{text-align: justify;display: block;}
+        .lft{float: left;}
+        .rft{float: right;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="mHeader" class="row mHeader">
+        <div class="col-sm-8">
+            <img src="bitw.jpg" width="100px">
+            <span class="brandname">BLOOD IN THE WATER</span>
+        </div>
+        <div class="col-sm-4">
+            <div class="topnav">
+                <a href="#personalInfo">Thông Tin</a> |
+                <a href="#kiemtraso">Kiểm Tra Số</a> |
+                <a href="#ctnchia">Phép Tính</a> |
+                <a href="#questions">Câu Hỏi</a> |
+                <a href="#video">Video</a> |
+                <a href="#canvas">Canvas</a> |
+                <a href="#array">Array</a> |
+                <a href="#color">Đổi Màu</a> |
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="personalInfo">
+        <h1>Thông Tin Cá Nhân</h1>
+        <hr>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="name">Họ Tên</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" id="name" placeholder="Nhập Họ Tên" 
+                    class="input-group input-group-sm">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="date">Ngày Tháng Năm Sinh</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="date" id="date" class="input-group input-group-sm">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="phone">Số Điện Thoại</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="tel" id="phone" class="input-group input-group-sm">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label for="gt">Giới Tính</label>
+                </div>
+                <div class="col-sm-7">
+                    <select id="gt">
+                        <option value="Nam">Nam</option>
+                        <option value="Nữ">Nữ</option>
+                        <option value="Khác">Khác</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-5">
+                    <label class="honnhan">Tình Trạng Hôn Nhân</label>
+                </div>
+                <div class="col-sm-7">
+                    <input type="radio" class="honnhan" name="honnhan" id="docthan" value="Độc Thân">
+                    <label for="docthan">Độc Thân</label><br>
+                    <input type="radio" class="honnhan" name="honnhan" id="dacogiadinh" value="Đã Có Gia Đình">
+                    <label for="dacogiadinh">Đã Có Gia Đình</label><br>
+                    <input type="radio" class="honnhan" name="honnhan" id="lythan" value="Ly Thân">
+                    <label for="lythan">Ly Thân</label><br><br>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="button" value="Submit" onclick="showInfo()" 
+                     class="btn btn-outline-danger w-100">
+                </div>
+                <div class="col-sm-6">
+                    <input type="button" value="Clear" onclick="clr()" 
+                    class="btn btn-outline-warning w-100">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader" class="kq">Kết quả</h5>
+            <label class="res0" id="res0"></label>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="kiemtraso">
+        <h1>Nhập Số N</h1>
+        <div class="col-sm-8">
+            <input type="number" id="numberInput"><br><br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <input type="button" value="Check Number" 
+                    class="btn btn-outline-primary" onclick="checkNumber()">
+                </div>
+                <div class="col-sm-4">
+                    <input type="button" value="Check Âm Dương"
+                    class="btn btn-outline-secondary" onclick="checkAmDuong()">
+                </div>
+                <div class="col-sm-4">
+                    <input type="button" value="Check Armstrong"
+                    class="btn btn-outline-light" onclick="checkArmstrong()">
+                </div>
+            </div>
+           <br>
+            <div class="row">
+                <div class="col-sm-4">
+                    <input type="button" value="Check NgTố"
+                    class="btn btn-outline-info w-100" onclick="checkNgto()">
+                </div>
+                <div class="col-sm-4">
+                    <input type="button" value="Digit Count"
+                    class="btn btn-outline-success w-100" onclick="checkchuso()">
+                </div>
+                <div class="col-sm-4">
+                    <input type="button" value="Check Hoàn Hảo" onclick="checkhoanhao()"
+                    class="btn btn-outline-danger w-100">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-3 offset-sm-9">
+                    <input type="button" value="Clear"
+                    class="btn btn-outline-warning w-100" onclick="clearNumber()">
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader" class="kq">Kết quả</h5>
+            <label class="res" id="res"></label>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="ctnchia">
+        <h1>Nhập 2 Số</h1>
+        <div class="col-sm-8">
+            Số a: <input type="number" id="num1" class="num"><br>
+            Số b: <input type="number" id="num2" class="num"><br><br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="button" value="Phép Cộng" 
+                    class="btn btn-outline-primary" onclick="cong()">
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" value="Phép Trừ"
+                    class="btn btn-outline-light" onclick="tru()">
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" value="Phép Nhân"
+                    class="btn btn-outline-success" onclick="nhan()">
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" value="Phép Chia"
+                    class="btn btn-outline-info w-100" onclick="chia()">
+                </div>
+            </div>
+           <br>
+            <div class="row">
+                <div class="col-sm-3 offset-sm-9">
+                    <input type="button" value="Clear"
+                    class="btn btn-outline-warning w-100" onclick="clear2so()">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader" class="kq">Kết quả</h5>
+            <label class="resmath" id="resmath"></label>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="question">
+        <h2>Bé học Văn: </h2>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4>Ai hỏi bộ trưởng trả lời? </h4>
+                    <p class="questions">1. Giá xăng hiện nay cao hơn 25k là đúng hay sai? </p>
+                    <input type="radio" id="yes" name="cau1" value="Đúng">
+                    <label for="yes">Đúng</label><br>
+                    <input type="radio" id="no" name="cau1" value="Sai">
+                    <label for="no">Sai</label><br><br>
+
+                    <p class="questions">2. Giá vàng hiện nay cao hơn giá xăng là đúng hay sai? </p>
+                    <input type="radio" id="yes2" name="cau2" value="Đúng">
+                    <label for="yes2">Đúng</label><br>
+                    <input type="radio" id="no2" name="cau2" value="Sai">
+                    <label for="no2">Sai</label><br><br>
+
+                    <p class="questions">3. Quãng đường từ nhà tới trường = quãng đường từ trường về nhà là đúng hay
+                        sai? </p>
+                    <input type="radio" id="yes3" name="cau3" value="Đúng">
+                    <label for="yes3">Đúng</label><br>
+                    <input type="radio" id="no3" name="cau3" value="Sai">
+                    <label for="no3">Sai</label><br>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 offset-sm-6">
+                        <input class="btn btn-outline-info w-100" type="button" value="Trả lời" 
+                        onclick="answerQuestion()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader3">Kết quả: </h5>
+            <label class="res" id="res3"></label>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="video">
+        <h2>THE VIDEO</h2>
+        <div class="col-sm-8">
+            <video src="http://techslides.com/demos/sample-videos/small.mp4" controls width="100%"></video>
+        </div>
+        <div class="col-sm-4">
+            <span class="lego">
+                &emsp; Lego (tiếng Đan Mạch: [ˈleːɡo];đọc cách điệu là LEGO) là một dòng sản phẩm đồ chơi lắp ráp thuộc Tập đoàn Lego có trụ sở tại Billund, Đan Mạch.
+                Cái tên "Lego" là viết tắt hai chữ cái đầu của hai từ leg godt, có nghĩa là "chơi hay".<br>
+                &emsp; Sản phẩm chủ lực của công ty, Lego, bao gồm các viên gạch nhiều màu sắc được lắp ráp với nhau đi kèm với một loạt các răng ăn khớp hình tròn,
+                các nhân vật tí hon được gọi là minifigure, và nhiều bộ phận khác. Những miếng ghép Lego có thể được lắp ráp và kết nối theo nhiều cách khác nhau
+                để xây dựng nên nhiều đồ vật như: xe cộ, các tòa nhà cao tầng và con người - có thể hoạt động,.... Bất cứ thứ gì đều có thể tháo rời sau khi đã lắp
+                ráp, và các mảnh ghép sẽ được dùng để tạo ra những đồ vật khác.
+            </span>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="canvas">
+        <div class="col-sm-4">
+            <h1>Canvas</h1>
+            <input type="number" id="numX" placeholder="Nhập toạ độ X">
+            <input type="number" id="numY" placeholder="Nhập toạ độ Y">
+            <input type="number" id="dai" placeholder="Nhập chiều dài">
+            <input type="number" id="rong" placeholder="Nhập chiều rộng">
+        </div>
+        <div class="col-sm-8">
+            <input type="button" value="Draw Square" onclick="drawsquare()">
+            <input type="button" value="Draw Circle" onclick="drawcircle()">
+            <input type="button" value="Draw Line" onclick="drawline()">
+            <input type="button" value="Draw Image" onclick="drawimage()">
+            <input type="button" value="Draw Text" onclick="drawtext()">
+            <input type="button" value="Draw Stroke" onclick="drawstroke()">
+            <input type="button" value="Draw Rhombus" onclick="drawrhombus()">
+
+            <input type="button" value="Clear" onclick="xoacanvas()">
+            <br>
+            <canvas width="800" height="500" id="mCanvas" style="border: 1px solid white;"></canvas>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="array">
+        <h1>Array</h1>
+        <div class="col-sm-8">
+            <h2>Nhập giá trị</h2>
+            <input type="text" class="mang" id="mang"><br>
+            <input type="text" class="mang" id="mang"><br>
+            <input type="text" class="mang" id="mang"><br>
+            <input type="text" class="mang" id="mang"><br><br>
+            <div class="row">
+                <div class="col-sm-6">
+                    <input type="button" value="Show Array" 
+                    class="btn btn-outline-danger w-100" onclick="showArray()">
+                </div>
+                <div class="col-sm-6">
+                    <input type="button" value="Clear Array"
+                    class="btn btn-outline-warning w-100" onclick="clearArray()">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h5 id="resHeader" class="kq">Kết quả Array</h5>
+            <label id="result" class="result"></label>
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="color">
+        <h1>Chọn Màu</h1><hr>
+        <div class="col-sm-3">
+            <label for="maunen">Chọn màu nền</label>
+        </div>
+        <div class="col-sm-3">
+            <input type="color" id="maunen" class="maunen" value="#ffffff">
+        </div>
+        <div class="col-sm-3">
+            <input type="button" value="Đổi màu nền" onclick="doimaunen()">
+        </div>
+        <div class="col-sm-3">
+            <input type="button" value="Xoá màu nền" onclick="xoamaunen()">
+        </div>
+    </div>
+    <hr>
+    <div class="row" id="color">
+        <div class="col-sm-3">
+            <label for="mauchu">Chọn màu chữ</label>
+        </div>
+        <div class="col-sm-3">
+            <input type="color" id="mauchu" class="mauchu" value="#ffffff">
+        </div>
+        <div class="col-sm-3">
+            <input type="button" value="Đổi màu chữ" onclick="doimauchu()">
+        </div>
+        <div class="col-sm-3">
+            <input type="button" value="Xoá màu chữ" onclick="xoamauchu()">
+        </div>
+    </div>
+    <hr>
+    <div class="footer navbar fixed-bottom navbar-light bg-dark">
+        <span class="lft">
+            <a href="#personalInfo">Thông Tin</a> |
+            <a href="#kiemtraso">Kiểm Tra Số</a> |
+            <a href="#ctnchia">Phép Tính</a> |
+            <a href="#questions">Câu Hỏi</a> |
+        </span>
+        <span class="rft">
+            <a href="#video">Video</a> |
+            <a href="#canvas">Canvas</a> |
+            <a href="#array">Array</a> |
+            <a href="#color">Đổi Màu</a> |
+            <a href="#mHeader">Back to Top</a> |
+        </span>
+    </div>
+</div>
+</body>
+</html>
