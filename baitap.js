@@ -21,6 +21,14 @@ function showInfo(){
 
 function clr(){
     document.getElementById("res0").innerHTML = "";
+    document.getElementById("name").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("gt").value = "";
+    let selectedElement = document.querySelector('input[name="honnhan"]:checked');
+    if (selectedElement) {
+        selectedElement.checked = false;
+    }
 }
 
 
@@ -285,6 +293,10 @@ function showArray(){
 
 function clearArray(){
     document.getElementById("result").innerHTML = "";
+    var stdarray = document.getElementsByClassName("mang");
+    for(let i = 0; i<stdarray.length; i++){
+        stdarray[i].value = "";
+    }
 }
 
 function doimaunen(){
